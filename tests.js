@@ -55,6 +55,18 @@ QUnit.test("Graph removeNodes", function( assert ) {
 
 
 QUnit.test("Graph removeEdges", function( assert ) {
+	var myGraph = new graph();
+    myGraph.addNode("k", "kitchen", []);
+    myGraph.addNode("bath", "bathroom", []);
+    myGraph.addNode("living room", "living room", []);
+    myGraph.addNode("bed1", "bedroom 1", []);
+    myGraph.addNode("bed2", "bedroom 2", []);
+    myGraph.addEdge("bed1", "bed2");
+    myGraph.addEdge("k", "bath");
+    myGraph.addEdge("bath", "bed1");
+	myGraph.removeEdge("bed1", "bath");
+	
+	 assert.deepEqual(myGraph.getNodes(), {"k":{node:"kitchen", edges: ["bath"]}, "bath":{node:"bathroom", edges:["k"]}, "living room":{node: "living room", edges:[]}, "bed1":{node: "bedroom 1", edges:["bed2"]}, "bed2": {node:"bedroom 2", edges:["bed1"]}});
     
 });
 QUnit.test("duplicate ID", function(assert){

@@ -64,15 +64,15 @@ function graph() {
      
      //1)remove edge from node's edge array
    //nodes.id1.edges
-   nodes.id1.edges.forEach(function(edge, index){
+   nodes[id1].edges.forEach(function(edge, index){
        if(edge == id2){
-           nodes.id1.edges = nodes.id1.edges.slice(0, index).concat(nodes.id1.edges.slice(index+1, nodes.id1.length));
+           nodes[id1].edges = nodes[id1].edges.slice(0, index).concat(nodes[id1].edges.slice(index+1, nodes[id1].length));
        }
    });
       
-   nodes.id2.edges.forEach(function(edge, index){
+   nodes[id2].edges.forEach(function(edge, index){
        if(edge == id1){
-            nodes.id2.edges = nodes.id2.edges.slice(0, index).concat(nodes.id2.edges.slice(index+1, nodes.id2.length));
+            nodes[id2].edges = nodes[id2].edges.slice(0, index).concat(nodes[id2].edges.slice(index+1, nodes[id2].length));
            
        }
    });
